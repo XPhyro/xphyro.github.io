@@ -10,10 +10,12 @@
     <item>
       <title> </title>
       <link>https://xphyro.github.io/about/</link>
-      <pubDate>Wed, 14 Jul 2021 22:05:48 +0300</pubDate>
+      <pubDate>Wed, 14 Jul 2021 22:39:40 +0300</pubDate>
       
       <guid>https://xphyro.github.io/about/</guid>
-      <description></description>
+      <description>Framework This blog uses Hugo and the hello-friend-ng theme.
+GitHub 
+License Unless otherwise stated, all posts and code on this blog are respectively licensed under the CC BY-NC-SA 4.0 and MIT licenses.</description>
     </item>
     
   </channel>
