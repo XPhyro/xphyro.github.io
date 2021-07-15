@@ -50,7 +50,7 @@ Workflow I use a private Git repository to version the development side of the b
 <meta itemprop="description" content="Introduction Framework I have built this blog using Hugo and the hello-friend-ng theme, and host it on GitHub Pages.
 Workflow I use a private Git repository to version the development side of the blog (such that drafts will not be public), and use a public repository named xphyro.github.io to host the public web site. I do not use GitHub Actions or any other external automations; rather, I set up a client-side pre-push hook in the development repository that builds the web site and pushes the build to the repository acknowledged by GitHub Pages."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
 <meta itemprop="dateModified" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="wordCount" content="529"><meta itemprop="image" content="https://xphyro.github.io/"/>
+<meta itemprop="wordCount" content="528"><meta itemprop="image" content="https://xphyro.github.io/"/>
 <meta itemprop="keywords" content="blog,workflow,setup," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xphyro.github.io/"/>
@@ -299,7 +299,7 @@ cd public
 git add -A
 GIT_COMMITTER_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook&#34;</span> GIT_COMMITTER_EMAIL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> git commit --author<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook &lt;&gt;&#34;</span> -m <span style="color:#e6db74">&#34;#</span><span style="color:#66d9ef">$(($(</span>git rev-list --all --count<span style="color:#66d9ef">)</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">: Automatic build&#34;</span>
 git push
-</code></pre></div><p>If you want the commit to be under your name and be signed normally, replace line the commit line with <code>git commit -m &quot;#$(($(git rev-list --all --count) + 1)): Automatic build&quot;</code>.</p>
+</code></pre></div><p>If you want the commit to be under your name and be signed normally, replace the commit line with <code>git commit -m &quot;#$(($(git rev-list --all --count) + 1)): Automatic build&quot;</code>.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
