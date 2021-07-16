@@ -48,7 +48,7 @@
 <meta itemprop="name" content="Setting Up A Personal Blog">
 <meta itemprop="description" content="An article in which the process of setting up a blog with Hugo is explained step by step."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
 <meta itemprop="dateModified" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="wordCount" content="545"><meta itemprop="image" content="https://xphyro.github.io"/>
+<meta itemprop="wordCount" content="547"><meta itemprop="image" content="https://xphyro.github.io"/>
 <meta itemprop="keywords" content="blog,workflow,setup," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xphyro.github.io"/>
@@ -177,8 +177,8 @@ MathJax.Hub.Config({
     </li>
     <li><a href="#setup">Setup</a>
       <ul>
-        <li><a href="#justification-1">Justification </a></li>
-        <li><a href="#mathjax-2">MathJax </a></li>
+        <li><a href="#justification-justify">Justification </a></li>
+        <li><a href="#mathjax-mathjax">MathJax </a></li>
         <li><a href="#automatic-building">Automatic Building</a></li>
       </ul>
     </li>
@@ -252,14 +252,14 @@ MathJax.Hub.Config({
 [<span style="color:#a6e22e">markup</span>]
   [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">tableOfContents</span>]
     <span style="color:#a6e22e">startLevel</span> = <span style="color:#ae81ff">1</span>
-</code></pre></div><p>Setting <code>startLevel</code> to 1 is important to have all sections visible in the table of contents of an article. Also, make sure to not add <code>post = &quot;articles&quot;</code> as a taxonomy: it will create duplicate paths and race conditions.</p>
-<h2 id="justification-1">Justification <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h2>
+</code></pre></div><p>Setting <code>startLevel</code> to 1 is important to have all sections visible in the table of contents of an article. Also, make sure to not add <code>post = &quot;articles&quot;</code> as a taxonomy: it will create duplicate paths and race conditions <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<h2 id="justification-justify">Justification <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
 <p>Set <code>customCSS = [&quot;/style.css&quot;]</code> (included in the above excerpt) and paste</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">post-content</span> <span style="color:#f92672">p</span> {
         <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">justify</span>;
 }
 </code></pre></div><p>into the file <code>static/style.css</code>.</p>
-<h2 id="mathjax-2">MathJax <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
+<h2 id="mathjax-mathjax">MathJax <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></h2>
 <p>To use <a href="https://www.mathjax.org/">MathJax</a>, append</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{- if .Params.mathjax -}}
     {{ partial &#34;mathjax.html&#34; . }}
@@ -299,10 +299,13 @@ git push
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="https://github.com/rhazdon/hugo-theme-hello-friend-ng/issues/20#issuecomment-488144749">https://github.com/rhazdon/hugo-theme-hello-friend-ng/issues/20#issuecomment-488144749</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://discourse.gohugo.io/t/build-output-is-indeterministic/33850">https://discourse.gohugo.io/t/build-output-is-indeterministic/33850</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p><a href="http://xuchengpeng.com/hexo-blog/2018/07/10/setting-mathjax-with-hugo/">http://xuchengpeng.com/hexo-blog/2018/07/10/setting-mathjax-with-hugo/</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://github.com/rhazdon/hugo-theme-hello-friend-ng/issues/20#issuecomment-488144749">https://github.com/rhazdon/hugo-theme-hello-friend-ng/issues/20#issuecomment-488144749</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="http://xuchengpeng.com/hexo-blog/2018/07/10/setting-mathjax-with-hugo/">http://xuchengpeng.com/hexo-blog/2018/07/10/setting-mathjax-with-hugo/</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
