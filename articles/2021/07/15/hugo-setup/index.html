@@ -48,7 +48,7 @@
 <meta itemprop="name" content="Setting Up A Personal Blog">
 <meta itemprop="description" content="An article in which the process of setting up a blog with Hugo is explained step by step."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
 <meta itemprop="dateModified" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="wordCount" content="528"><meta itemprop="image" content="https://xphyro.github.io"/>
+<meta itemprop="wordCount" content="545"><meta itemprop="image" content="https://xphyro.github.io"/>
 <meta itemprop="keywords" content="blog,workflow,setup," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xphyro.github.io"/>
@@ -211,7 +211,6 @@ MathJax.Hub.Config({
   <span style="color:#a6e22e">posts</span> = <span style="color:#e6db74">&#34;/articles/:year/:month/:day/:filename/&#34;</span>
 
 [<span style="color:#a6e22e">taxonomies</span>]
-  <span style="color:#a6e22e">posts</span>    = <span style="color:#e6db74">&#34;articles&#34;</span>
   <span style="color:#a6e22e">tag</span>      = <span style="color:#e6db74">&#34;tags&#34;</span>
   <span style="color:#a6e22e">category</span> = <span style="color:#e6db74">&#34;categories&#34;</span>
   <span style="color:#a6e22e">series</span>   = <span style="color:#e6db74">&#34;series&#34;</span>
@@ -253,7 +252,7 @@ MathJax.Hub.Config({
 [<span style="color:#a6e22e">markup</span>]
   [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">tableOfContents</span>]
     <span style="color:#a6e22e">startLevel</span> = <span style="color:#ae81ff">1</span>
-</code></pre></div><p>Setting <code>startLevel</code> to 1 is important to have all sections visible in the table of contents of an article.</p>
+</code></pre></div><p>Setting <code>startLevel</code> to 1 is important to have all sections visible in the table of contents of an article. Also, make sure to not add <code>post = &quot;articles&quot;</code> as a taxonomy: it will create duplicate paths and race conditions.</p>
 <h2 id="justification-1">Justification <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h2>
 <p>Set <code>customCSS = [&quot;/style.css&quot;]</code> (included in the above excerpt) and paste</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">post-content</span> <span style="color:#f92672">p</span> {
