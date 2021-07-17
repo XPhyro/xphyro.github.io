@@ -48,7 +48,7 @@
 <meta itemprop="name" content="Setting Up A Personal Blog">
 <meta itemprop="description" content="An article in which the process of setting up a blog with Hugo is explained step by step."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
 <meta itemprop="dateModified" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="wordCount" content="547"><meta itemprop="image" content="https://xphyro.github.io"/>
+<meta itemprop="wordCount" content="548"><meta itemprop="image" content="https://xphyro.github.io"/>
 <meta itemprop="keywords" content="blog,workflow,setup,technical,mathjax,automation," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xphyro.github.io"/>
@@ -182,6 +182,7 @@ MathJax.Hub.Config({
         <li><a href="#automatic-building">Automatic Building</a></li>
       </ul>
     </li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
                 </aside>
@@ -295,6 +296,7 @@ git add -A
 GIT_COMMITTER_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook&#34;</span> GIT_COMMITTER_EMAIL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> git commit --author<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook &lt;&gt;&#34;</span> -m <span style="color:#e6db74">&#34;#</span><span style="color:#66d9ef">$(($(</span>git rev-list --all --count<span style="color:#66d9ef">)</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">: Automatic build&#34;</span>
 git push
 </code></pre></div><p>If you want the commit to be under your name and be signed normally, replace the commit line with <code>git commit -m &quot;#$(($(git rev-list --all --count) + 1)): Automatic build&quot;</code>.</p>
+<h1 id="references">References</h1>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
