@@ -47,8 +47,8 @@
 
 <meta itemprop="name" content="Setting Up A Personal Blog">
 <meta itemprop="description" content="This article explains, step by step, the process of setting up a static blog using Hugo, hosted on GitHub Pages for free."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="dateModified" content="2021-07-18T17:57:46+03:00" />
-<meta itemprop="wordCount" content="951"><meta itemprop="image" content="https://xphyro.github.io"/>
+<meta itemprop="dateModified" content="2021-07-18T21:11:27+03:00" />
+<meta itemprop="wordCount" content="1037"><meta itemprop="image" content="https://xphyro.github.io"/>
 <meta itemprop="keywords" content="GitHub,automation,blog,MathJax,setup,technical,workflow," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xphyro.github.io"/>
@@ -64,7 +64,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xphyro.github.io/posts/2021/07/15/hugo-setup/" /><meta property="og:image" content="https://xphyro.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-07-15T09:09:28+03:00" />
-<meta property="article:modified_time" content="2021-07-18T17:57:46+03:00" />
+<meta property="article:modified_time" content="2021-07-18T21:11:27+03:00" />
 
 
 
@@ -192,10 +192,14 @@ MathJax.Hub.Config({
     </li>
     <li><a href="#setup">Setup</a>
       <ul>
-        <li><a href="#basics">Basics</a></li>
+        <li><a href="#essentials">Essentials</a></li>
         <li><a href="#justificationjustify">Justification</a></li>
         <li><a href="#mathjaxmathjax">MathJax</a></li>
-        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#deployment">Deployment</a>
+          <ul>
+            <li><a href="#other-hosting-methods">Other Hosting Methods</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#automation">Automation</a>
@@ -220,7 +224,7 @@ MathJax.Hub.Config({
 <h2 id="workflow">Workflow</h2>
 <p>I use a private Git repository to version the development side of the blog (such that drafts will not be public), and use a public repository named <code>xphyro.github.io</code> to host the public web site. I do not use <a href="https://github.com/features/actions">GitHub Actions</a> or any other external automations; rather, I set up a client-side pre-push <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">hook</a> in the development repository that builds the web site and pushes the build to the repository acknowledged by GitHub Pages.</p>
 <h1 id="setup">Setup</h1>
-<h2 id="basics">Basics</h2>
+<h2 id="essentials">Essentials</h2>
 <p>The following are the steps to set up a near-exact copy of this blog as of the time of writing this article.</p>
 <ul>
 <li>Complete the <a href="https://gohugo.io/getting-started/quick-start/">quick start</a> to get a basic idea of Hugo.</li>
@@ -276,7 +280,7 @@ MathJax.Hub.Config({
   [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">tableOfContents</span>]
     <span style="color:#a6e22e">startLevel</span> = <span style="color:#ae81ff">1</span>
 </code></pre></div><p>Setting <code>startLevel</code> to 1 is important to have all sections visible in the table of contents of a post. Also, make sure to not add <code>post = &quot;posts&quot;</code> as a taxonomy: it will create duplicate paths and race conditions<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
-<p>Having completed the above steps, you can build or preview the website exactly the same way as you did in the quick start, after which you should have a website that looks and behaves very much like mine. You can stop here, or continue with some auxiliary details I will touch upon.</p>
+<p>Having completed the above steps, you can build or preview the website exactly the same way as you did in the quick start, after which you should have a website that looks and behaves very much like mine.</p>
 <h2 id="justificationjustify">Justification<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
 <p>If you create a post now, you will see that yours is not justified like this. To achieve justification, set <code>customCSS = [&quot;/style.css&quot;]</code> under <code>[params]</code> in your configuration and paste</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">post-content</span> <span style="color:#f92672">p</span> {
@@ -323,6 +327,10 @@ git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add origin <span style="color:#e6db74">&#34;git@github.com:USERNAME/USERNAME.github.io.git&#34;</span>
 git push --set-upstream origin master
 </code></pre></div><p>After a few seconds to a few minutes, GitHub Pages will automatically deploy your website on <code>https://USERNAME.github.io</code>.</p>
+<h3 id="other-hosting-methods">Other Hosting Methods</h3>
+<p>If you would not like to host your website on GitHub Pages, which is <em>very</em> understandable, there are many other similar hosting services such as <a href="https://render.com/docs/static-sites">Render</a>. You may use one of those, or even better, host on your own server using your own domain name.</p>
+<p>If the exchange rate between your &ldquo;native&rdquo; currency and USD is sufficiently small, hosting should be quite cheap; and, you can get a domain name for free thanks to <a href="https://nic.eu.org/">EU.org</a>.</p>
+<p>To learn more about how to host on your own server and set up your own domain name, see the basic courses on <a href="https://landchad.net/">LandChad.net</a>.</p>
 <h1 id="automation">Automation</h1>
 <h2 id="building">Building</h2>
 <p>To automatically build the website (without drafts) and push it live, paste the following script into <code>.git/hooks/pre-push</code>.</p>
@@ -346,8 +354,6 @@ git diff --cached --name-status | grep <span style="color:#e6db74">&#34;^M&#34;<
 	sed -i -E <span style="color:#e6db74">&#34;0,/^lastmod:\s*[0-9]{4}-.*/s//lastmod: </span><span style="color:#66d9ef">$(</span>date --iso-8601<span style="color:#f92672">=</span>seconds<span style="color:#66d9ef">)</span><span style="color:#e6db74">/&#34;</span> -- <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span>
     git add -- <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span>
 <span style="color:#66d9ef">done</span>
-
-exit <span style="color:#ae81ff">0</span>
 </code></pre></div><h1 id="references">References</h1>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -401,7 +407,7 @@ exit <span style="color:#ae81ff">0</span>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        951 Words
+        1037 Words
       </p>
 
       <p>
@@ -418,7 +424,7 @@ exit <span style="color:#ae81ff">0</span>
          
           
             
-              (Last updated: 2021-07-18 17:57)
+              (Last updated: 2021-07-18 21:11)
             
           
         
