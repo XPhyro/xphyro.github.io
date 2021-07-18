@@ -128,9 +128,9 @@ git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add origin <span style="color:#e6db74">&#34;git@github.com:USERNAME/USERNAME.github.io.git&#34;</span>
 git push --set-upstream origin master
 </code></pre></div><p>After a few seconds to a few minutes, GitHub Pages will automatically deploy your website on <code>https://USERNAME.github.io</code>.</p>
-<h3 id="other-hosting-methods">Other Hosting Methods</h3>
+<h3 id="alternate-methods">Alternate Methods</h3>
 <p>If you would not like to host your website on GitHub Pages, which is <em>very</em> understandable, there are many other similar hosting services such as <a href="https://render.com/docs/static-sites">Render</a>. You may use one of those, or even better, host on your own server using your own domain name.</p>
-<p>If the exchange rate between your &ldquo;native&rdquo; currency and USD is sufficiently small, hosting should be quite cheap; and, you can get a domain name for free thanks to <a href="https://nic.eu.org/">EU.org</a>.</p>
+<p>If the exchange rate between your native currency and USD is sufficiently small, hosting should be quite cheap; and, you can get a domain name for free thanks to <a href="https://nic.eu.org/">EU.org</a>.</p>
 <p>To learn more about how to host on your own server and set up your own domain name, see the basic courses on <a href="https://landchad.net/">LandChad.net</a>.</p>
 <h1 id="automation">Automation</h1>
 <h2 id="building">Building</h2>
