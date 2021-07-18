@@ -14,8 +14,9 @@
       <pubDate>Thu, 15 Jul 2021 09:09:28 +0300</pubDate>
       
       <guid>https://xphyro.github.io/posts/2021/07/15/hugo-setup/</guid>
-      <description>Introduction Framework I have built this blog using Hugo and the hello-friend-ng theme, and host it on GitHub Pages.
-Workflow I use a private Git repository to version the development side of the blog (such that drafts will not be public), and use a public repository named xphyro.github.io to host the public web site. I do not use GitHub Actions or any other external automations; rather, I set up a client-side pre-push hook in the development repository that builds the web site and pushes the build to the repository acknowledged by GitHub Pages.</description>
+      <description>Introduction In this article, I will explain the steps for creating a blog like mine: static, automatically generated and hosted for free.
+Framework I have built this blog using Hugo and the hello-friend-ng theme, and host it on GitHub Pages.
+Workflow I use a private Git repository to version the development side of the blog (such that drafts will not be public), and use a public repository named xphyro.github.io to host the public web site.</description>
     </item>
     
     <item>
