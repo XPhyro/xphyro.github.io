@@ -47,8 +47,8 @@
 
 <meta itemprop="name" content="Setting Up A Personal Blog">
 <meta itemprop="description" content="This article explains, step by step, the process of setting up a static blog using Hugo, hosted on GitHub Pages for free."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="dateModified" content="2021-07-18T21:25:02+03:00" />
-<meta itemprop="wordCount" content="1036"><meta itemprop="image" content="https://xphyro.github.io"/>
+<meta itemprop="dateModified" content="2021-07-20T18:52:49+03:00" />
+<meta itemprop="wordCount" content="1183"><meta itemprop="image" content="https://xphyro.github.io"/>
 <meta itemprop="keywords" content="GitHub,automation,blog,MathJax,setup,technical,workflow," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xphyro.github.io"/>
@@ -64,7 +64,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xphyro.github.io/posts/2021/07/15/hugo-setup/" /><meta property="og:image" content="https://xphyro.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-07-15T09:09:28+03:00" />
-<meta property="article:modified_time" content="2021-07-18T21:25:02+03:00" />
+<meta property="article:modified_time" content="2021-07-20T18:52:49+03:00" />
 
 
 
@@ -158,7 +158,7 @@ MathJax.Hub.Config({
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        5 minutes
+        6 minutes
 
         
       </p>
@@ -190,6 +190,7 @@ MathJax.Hub.Config({
         <li><a href="#essentials">Essentials</a></li>
         <li><a href="#justificationjustify">Justification</a></li>
         <li><a href="#mathjaxmathjax">MathJax</a></li>
+        <li><a href="#eliminating-javascript">Eliminating JavaScript</a></li>
         <li><a href="#deployment">Deployment</a>
           <ul>
             <li><a href="#alternate-methods">Alternate Methods</a></li>
@@ -312,6 +313,21 @@ MathJax.Hub.Config({
 $$
 G_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa T_{\mu\nu}
 $$</p>
+<p>MathJax will only be loaded in posts that sets the <code>mathjax</code> field to <code>true</code>. It will not be loaded in any other case, including on non-post pages.</p>
+<h2 id="eliminating-javascript">Eliminating JavaScript</h2>
+<p>The <code>hello-friend-ng</code> theme uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> for a few purposes:</p>
+<ul>
+<li>To utilise <a href="https://prismjs.com/">PrismJS</a></li>
+<li>To allow toggling between themes</li>
+<li>To change the default theme based on the system-wise preference of the viewer</li>
+</ul>
+<p>If you look at the source of this website, you will see that no JavaScript (apart from the conditional MathJax) is loaded. If you also would like to eliminate unnecessary JavaScript from your website, which I highly recommend you do, follow these steps:</p>
+<ul>
+<li>Navigate to <code>themes/hello-friend-ng</code>.</li>
+<li>Execute <code>rm -rf assets/js layouts/partials/javascript.html</code>.</li>
+<li>Open <code>layouts/_default/baseof.html</code> in a text editor and remove the line that reads <code>{{ partial &quot;javascript.html&quot; . }}</code>.</li>
+</ul>
+<p>Now, your website should be free of JavaScript. If you have set up MathJax, it will still behave as expected.</p>
 <h2 id="deployment">Deployment</h2>
 <p>After building, Hugo will create a directory named (by default) <code>public</code>. Navigate into this directory and execute the following commands to initialise a Git repository, add all files to the Git index and commit them.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git init
@@ -402,7 +418,7 @@ git diff --cached --name-status | grep <span style="color:#e6db74">&#34;^M&#34;<
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1036 Words
+        1183 Words
       </p>
 
       <p>
@@ -419,7 +435,7 @@ git diff --cached --name-status | grep <span style="color:#e6db74">&#34;^M&#34;<
          
           
             
-              (Last updated: 2021-07-18 21:25)
+              (Last updated: 2021-07-20 18:52)
             
           
         
