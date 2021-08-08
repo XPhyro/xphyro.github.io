@@ -47,8 +47,8 @@
 
 <meta itemprop="name" content="Setting Up A Personal Blog">
 <meta itemprop="description" content="This article explains, step by step, the process of setting up a static blog using Hugo, hosted on GitHub Pages for free."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="dateModified" content="2021-08-08T01:53:00+03:00" />
-<meta itemprop="wordCount" content="1170"><meta itemprop="image" content="https://xphyro.github.io"/>
+<meta itemprop="dateModified" content="2021-08-08T03:04:54+03:00" />
+<meta itemprop="wordCount" content="1171"><meta itemprop="image" content="https://xphyro.github.io"/>
 <meta itemprop="keywords" content="GitHub,automation,blog,MathJax,setup,technical,workflow," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xphyro.github.io"/>
@@ -64,7 +64,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xphyro.github.io/posts/2021/07/15/hugo-setup/" /><meta property="og:image" content="https://xphyro.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-07-15T09:09:28+03:00" />
-<meta property="article:modified_time" content="2021-08-08T01:53:00+03:00" />
+<meta property="article:modified_time" content="2021-08-08T03:04:54+03:00" />
 
 
 
@@ -201,7 +201,7 @@ MathJax.Hub.Config({
     <li><a href="#automation">Automation</a>
       <ul>
         <li><a href="#building">Building</a></li>
-        <li><a href="#updating-last-modification-time">Updating Last Modification Time</a></li>
+        <li><a href="#updating-the-last-modification-time">Updating the Last Modification Time</a></li>
       </ul>
     </li>
   </ul>
@@ -351,7 +351,7 @@ git add -A
 GIT_COMMITTER_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook&#34;</span> GIT_COMMITTER_EMAIL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> git commit --author<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook &lt;&gt;&#34;</span> -m <span style="color:#e6db74">&#34;#</span><span style="color:#66d9ef">$(($(</span>git rev-list --all --count<span style="color:#66d9ef">)</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">: Automatic build&#34;</span>
 git push
 </code></pre></div><p>If you want the commit to be under your name and be signed normally, replace the commit line with <code>git commit -m &quot;#$(($(git rev-list --all --count) + 1)): Automatic build&quot;</code>.</p>
-<h2 id="updating-last-modification-time">Updating Last Modification Time</h2>
+<h2 id="updating-the-last-modification-time">Updating the Last Modification Time</h2>
 <p>Hugo allows you to set the field <code>lastmod</code> in the frontmatter of your posts. If this field has a value later than the field <code>date</code>, the value is passed onto themes to be displayed somewhere in the post. This value might not be displayed depending on the theme you use.</p>
 <p>It is quite cumbersome to update this field manually, so, if you would like to automate it, pas the following script into <code>.git/hooks/pre-commit</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env sh
@@ -412,7 +412,7 @@ git diff --cached --name-status | grep <span style="color:#e6db74">&#34;^M&#34;<
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1170 Words
+        1171 Words
       </p>
 
       <p>
@@ -429,7 +429,7 @@ git diff --cached --name-status | grep <span style="color:#e6db74">&#34;^M&#34;<
          
           
             
-              (Last updated: 2021-08-08 01:53)
+              (Last updated: 2021-08-08 03:04)
             
           
         

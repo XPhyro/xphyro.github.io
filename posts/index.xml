@@ -157,7 +157,7 @@ git add -A
 GIT_COMMITTER_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook&#34;</span> GIT_COMMITTER_EMAIL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> git commit --author<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook &lt;&gt;&#34;</span> -m <span style="color:#e6db74">&#34;#</span><span style="color:#66d9ef">$(($(</span>git rev-list --all --count<span style="color:#66d9ef">)</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">: Automatic build&#34;</span>
 git push
 </code></pre></div><p>If you want the commit to be under your name and be signed normally, replace the commit line with <code>git commit -m &quot;#$(($(git rev-list --all --count) + 1)): Automatic build&quot;</code>.</p>
-<h2 id="updating-last-modification-time">Updating Last Modification Time</h2>
+<h2 id="updating-the-last-modification-time">Updating the Last Modification Time</h2>
 <p>Hugo allows you to set the field <code>lastmod</code> in the frontmatter of your posts. If this field has a value later than the field <code>date</code>, the value is passed onto themes to be displayed somewhere in the post. This value might not be displayed depending on the theme you use.</p>
 <p>It is quite cumbersome to update this field manually, so, if you would like to automate it, pas the following script into <code>.git/hooks/pre-commit</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env sh
