@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://xphyro.github.io/articles/</loc>
+    <lastmod>2021-08-08T03:04:54+03:00</lastmod>
+  </url><url>
     <loc>https://xphyro.github.io/tags/automation/</loc>
     <lastmod>2021-08-08T03:04:54+03:00</lastmod>
   </url><url>
@@ -17,10 +20,7 @@
     <loc>https://xphyro.github.io/tags/mathjax/</loc>
     <lastmod>2021-08-08T03:04:54+03:00</lastmod>
   </url><url>
-    <loc>https://xphyro.github.io/posts/</loc>
-    <lastmod>2021-08-08T03:04:54+03:00</lastmod>
-  </url><url>
-    <loc>https://xphyro.github.io/posts/2021/07/15/hugo-setup/</loc>
+    <loc>https://xphyro.github.io/articles/2021/07/15/hugo-setup/</loc>
     <lastmod>2021-08-08T03:04:54+03:00</lastmod>
   </url><url>
     <loc>https://xphyro.github.io/categories/setup/</loc>
