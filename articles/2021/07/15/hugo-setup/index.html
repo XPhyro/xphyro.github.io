@@ -47,8 +47,8 @@
 
 <meta itemprop="name" content="Setting Up A Personal Blog">
 <meta itemprop="description" content="This article explains, step by step, the process of setting up a static blog using Hugo, hosted on GitHub Pages for free."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="dateModified" content="2021-12-11T14:34:20+03:00" />
-<meta itemprop="wordCount" content="1224"><meta itemprop="image" content="https://xphyro.github.io"/>
+<meta itemprop="dateModified" content="2021-12-11T14:42:11+03:00" />
+<meta itemprop="wordCount" content="1228"><meta itemprop="image" content="https://xphyro.github.io"/>
 <meta itemprop="keywords" content="GitHub,automation,blog,MathJax,setup,technical,workflow," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xphyro.github.io"/>
@@ -64,7 +64,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xphyro.github.io/articles/2021/07/15/hugo-setup/" /><meta property="og:image" content="https://xphyro.github.io"/><meta property="article:section" content="articles" />
 <meta property="article:published_time" content="2021-07-15T09:09:28+03:00" />
-<meta property="article:modified_time" content="2021-12-11T14:34:20+03:00" />
+<meta property="article:modified_time" content="2021-12-11T14:42:11+03:00" />
 
 
 
@@ -346,10 +346,16 @@ git push
 <p>It is quite cumbersome to update this field manually, so, if you would like to automate it, paste the following script into <code>.git/hooks/pre-commit</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env sh
 </span><span style="color:#75715e"></span>
-git diff --cached --name-status | grep <span style="color:#e6db74">&#34;^M&#34;</span> | cut -d<span style="color:#e6db74">&#39;	&#39;</span> -f2- | grep <span style="color:#e6db74">&#34;^content/.*\.md</span>$<span style="color:#e6db74">&#34;</span> | <span style="color:#66d9ef">while</span> IFS<span style="color:#f92672">=</span> read -r file; <span style="color:#66d9ef">do</span>
-    sed -i -E <span style="color:#e6db74">&#34;0,/^lastmod:\s*[0-9]{4}-.*/s//lastmod: </span><span style="color:#66d9ef">$(</span>date --iso-8601<span style="color:#f92672">=</span>seconds<span style="color:#66d9ef">)</span><span style="color:#e6db74">/&#34;</span> -- <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>
-    git add -- <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">done</span>
+time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date --iso-8601<span style="color:#f92672">=</span>seconds<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+
+git diff --cached --name-status <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    | grep <span style="color:#e6db74">&#34;^M&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    | cut -d<span style="color:#e6db74">&#39;	&#39;</span> -f2- <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    | grep <span style="color:#e6db74">&#34;^content/.*\.md</span>$<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    | <span style="color:#66d9ef">while</span> IFS<span style="color:#f92672">=</span> read -r file; <span style="color:#66d9ef">do</span>
+          sed -iE <span style="color:#e6db74">&#34;0,/^lastmod:\s*[0-9]{4}-.*/s//lastmod: </span>$time<span style="color:#e6db74">/&#34;</span> -- <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>
+          git add -- <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>
+      <span style="color:#66d9ef">done</span>
 </code></pre></div><section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
