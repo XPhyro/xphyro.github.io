@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on XPhyro&#39;s Blog</title>
+    <link>https://xphyro.github.io/tags/github/</link>
+    <description>Recent content in GitHub on XPhyro&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc-sa/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC-SA 4.0&lt;/a&gt; &amp; &lt;a href=&#34;https://opensource.org/licenses/MIT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 15 Jul 2021 09:09:28 +0300</lastBuildDate><atom:link href="https://xphyro.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up A Personal Blog</title>
+      <link>https://xphyro.github.io/articles/2021/07/15/setting-up-a-personal-blog/</link>
+      <pubDate>Thu, 15 Jul 2021 09:09:28 +0300</pubDate>
+      
+      <guid>https://xphyro.github.io/articles/2021/07/15/setting-up-a-personal-blog/</guid>
+      <description>Introduction In this article, I will explain the steps for creating a blog like mine: static, automatically generated and hosted for free.
+Framework I have built this blog using Hugo and the hello-friend-ng theme, and host it on GitHub Pages.
+Workflow I use a private Git repository to version the development side of the blog (such that drafts will not be public), and use a public repository named xphyro.github.io to host the public web site.</description>
+    </item>
+    
+  </channel>
+</rss>
