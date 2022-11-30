@@ -44,7 +44,7 @@
 
 <meta itemprop="name" content="Setting Up A Personal Blog">
 <meta itemprop="description" content="This article explains, step by step, the process of setting up a static blog using Hugo, hosted on GitHub Pages for free."><meta itemprop="datePublished" content="2021-07-15T09:09:28+03:00" />
-<meta itemprop="dateModified" content="2021-12-11T14:42:11+03:00" />
+<meta itemprop="dateModified" content="2022-11-30T15:53:43+03:00" />
 <meta itemprop="wordCount" content="1228"><meta itemprop="image" content="https://xphyro.github.io"/>
 <meta itemprop="keywords" content="GitHub,automation,blog,MathJax,setup,technical,workflow," />
 <meta name="twitter:card" content="summary_large_image"/>
@@ -60,7 +60,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xphyro.github.io/articles/2021/07/15/setting-up-a-personal-blog/" /><meta property="og:image" content="https://xphyro.github.io"/><meta property="article:section" content="articles" />
 <meta property="article:published_time" content="2021-07-15T09:09:28+03:00" />
-<meta property="article:modified_time" content="2021-12-11T14:42:11+03:00" />
+<meta property="article:modified_time" content="2022-11-30T15:53:43+03:00" />
 
 
 
@@ -197,25 +197,41 @@ MathJax.Hub.Config({
 
             <div class="post-content">
                 <h1 id="introduction">Introduction</h1>
-<p>In this article, I will explain the steps for creating a blog like mine: static, automatically generated and hosted for free.</p>
+<p>In this article, I will explain the steps for creating a blog like mine:
+static, automatically generated and hosted for free.</p>
 <h2 id="framework">Framework</h2>
-<p>I have built this blog using <a href="https://gohugo.io/">Hugo</a> and the <a href="https://github.com/rhazdon/hugo-theme-hello-friend-ng">hello-friend-ng</a> theme, and host it on <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>I have built this blog using <a href="https://gohugo.io/">Hugo</a> and the
+<a href="https://github.com/rhazdon/hugo-theme-hello-friend-ng">hello-friend-ng</a> theme,
+and host it on <a href="https://pages.github.com/">GitHub Pages</a>.</p>
 <h2 id="workflow">Workflow</h2>
-<p>I use a private Git repository to version the development side of the blog (such that drafts will not be public), and use a public repository named <code>xphyro.github.io</code> to host the public web site. I do not use <a href="https://github.com/features/actions">GitHub Actions</a> or any other external automations; rather, I set up a client-side pre-push <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">hook</a> in the development repository that builds the web site and pushes the build to the repository acknowledged by GitHub Pages.</p>
+<p>I use a private Git repository to version the development side of the blog
+(such that drafts will not be public), and use a public repository named
+<code>xphyro.github.io</code> to host the public web site. I do not use <a href="https://github.com/features/actions">GitHub
+Actions</a> or any other external
+automations; rather, I set up a client-side pre-push
+<a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">hook</a> in the
+development repository that builds the web site and pushes the build to the
+repository acknowledged by GitHub Pages.</p>
 <h1 id="setup">Setup</h1>
 <h2 id="essentials">Essentials</h2>
-<p>The following are the steps to set up a near-exact copy of this blog as of the time of writing this article.</p>
+<p>The following are the steps to set up a near-exact copy of this blog as of the
+time of writing this article.</p>
 <ul>
-<li>Complete the <a href="https://gohugo.io/getting-started/quick-start/">quick start</a> to get a basic idea of Hugo.</li>
-<li>Navigate to the root directory of your Hugo project and add the <code>hello-friend-ng</code> theme as a sub-module by executing the following.</li>
+<li>Complete the <a href="https://gohugo.io/getting-started/quick-start/">quick start</a> to
+get a basic idea of Hugo.</li>
+<li>Navigate to the root directory of your Hugo project and add the
+<code>hello-friend-ng</code> theme as a sub-module by executing the following.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git submodule add <span style="color:#e6db74">&#39;git@github.com:rhazdon/hugo-theme-hello-friend-ng.git&#39;</span> themes/hello-friend-ng
 </span></span></code></pre></div><ul>
-<li>Overwrite your <code>config.toml</code> file with the example file by executing the following</li>
+<li>Overwrite your <code>config.toml</code> file with the example file by executing the
+following</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cp -f themes/hello-friend-ng/exampleSite/config.toml config.toml
 </span></span></code></pre></div><p>Then, configure your website by filling in or changing the details.</p>
-<p>Below are some important changes (for replication purposes) in my configuration. I have omitted changes that are clearly explained in the default configuration, or changes that are obvious.</p>
+<p>Below are some important changes (for replication purposes) in my
+configuration. I have omitted changes that are clearly explained in the default
+configuration, or changes that are obvious.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">permalinks</span>]
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">posts</span> = <span style="color:#e6db74">&#34;/articles/:year/:month/:day/:filename/&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -258,72 +274,108 @@ MathJax.Hub.Config({
 </span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">markup</span>]
 </span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">tableOfContents</span>]
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">startLevel</span> = <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>If you do not want to call your posts articles as I do, you may replace all <code>articles</code> and <code>Articles</code> you see with <code>posts</code> and <code>Posts</code>. When renaming posts, be sure to keep the identifier as <code>posts</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Setting <code>startLevel</code> to 1 is important to have all sections visible in the table of contents of an article. Also make sure to not add <code>post = &quot;posts&quot;</code> as a taxonomy: it will create duplicate paths and race conditions<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
-<p>Having completed the above steps, you can build or preview the website exactly the same way as you did in the quick start, after which you should have a website that looks and behaves very much like mine.</p>
+</span></span></code></pre></div><p>If you do not want to call your posts articles as I do, you may replace all
+<code>articles</code> and <code>Articles</code> you see with <code>posts</code> and <code>Posts</code>. When renaming
+posts, be sure to keep the identifier as <code>posts</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Setting
+<code>startLevel</code> to 1 is important to have all sections visible in the table of
+contents of an article. Also make sure to not add <code>post = &quot;posts&quot;</code> as a
+taxonomy: it will create duplicate paths and race conditions<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>Having completed the above steps, you can build or preview the website exactly
+the same way as you did in the quick start, after which you should have a
+website that looks and behaves very much like mine.</p>
 <h2 id="justificationjustify">Justification<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></h2>
-<p>If you create a post now, you will see that yours is not justified like this. To achieve justification, set <code>customCSS = [&quot;/style.css&quot;]</code> under <code>[params]</code> in your configuration and paste</p>
+<p>If you create a post now, you will see that yours is not justified like this.
+To achieve justification, set <code>customCSS = [&quot;/style.css&quot;]</code> under <code>[params]</code> in
+your configuration and paste</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">post-content</span> <span style="color:#f92672">p</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">justify</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">justify</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>into the file <code>static/style.css</code>.</p>
 <h2 id="mathjaxmathjax">MathJax<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></h2>
-<p>To typeset $\LaTeX$, you can include <a href="https://www.mathjax.org/">MathJax</a> in your posts by appending</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{- if .Params.mathjax -}}
-</span></span><span style="display:flex;"><span>    {{ partial &#34;mathjax.html&#34; . }}
-</span></span><span style="display:flex;"><span>{{- end }}
-</span></span></code></pre></div><p>to <code>themes/hello-friend-ng/layouts/partials/head.html</code> and pasting the following into <code>layouts/partials/mathjax.html</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">async</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+<p>To typeset $\LaTeX$, you can include <a href="https://www.mathjax.org/">MathJax</a> in
+your posts by appending</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{- if .Params.mathjax -}} {{ partial &#34;mathjax.html&#34; . }} {{- end }}
+</span></span></code></pre></div><p>to <code>themes/hello-friend-ng/layouts/partials/head.html</code> and pasting the
+following into <code>layouts/partials/mathjax.html</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">async</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;</span>
+</span></span><span style="display:flex;"><span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/x-mathjax-config&#34;</span>&gt;
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">MathJax</span>.<span style="color:#a6e22e">Hub</span>.<span style="color:#a6e22e">Config</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tex2jax</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">inlineMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#39;$&#39;</span>,<span style="color:#e6db74">&#39;$&#39;</span>], [<span style="color:#e6db74">&#39;\\(&#39;</span>,<span style="color:#e6db74">&#39;\\)&#39;</span>]],
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">displayMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#39;$$&#39;</span>,<span style="color:#e6db74">&#39;$$&#39;</span>], [<span style="color:#e6db74">&#39;\[&#39;</span>,<span style="color:#e6db74">&#39;\]&#39;</span>]],
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">processEscapes</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">processEnvironments</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">skipTags</span><span style="color:#f92672">:</span> [
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;script&#39;</span>, <span style="color:#e6db74">&#39;noscript&#39;</span>, <span style="color:#e6db74">&#39;style&#39;</span>, <span style="color:#e6db74">&#39;textarea&#39;</span>, <span style="color:#e6db74">&#39;pre&#39;</span>, <span style="color:#e6db74">&#39;code&#39;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">TeX</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">equationNumbers</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">autoNumber</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;AMS&#34;</span> },
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">extensions</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;AMSmath.js&#34;</span>, <span style="color:#e6db74">&#34;AMSsymbols.js&#34;</span>]
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MathJax</span>.<span style="color:#a6e22e">Hub</span>.<span style="color:#a6e22e">Config</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tex2jax</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">inlineMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#39;$&#39;</span>,<span style="color:#e6db74">&#39;$&#39;</span>], [<span style="color:#e6db74">&#39;\\(&#39;</span>,<span style="color:#e6db74">&#39;\\)&#39;</span>]],
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">displayMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#39;$$&#39;</span>,<span style="color:#e6db74">&#39;$$&#39;</span>], [<span style="color:#e6db74">&#39;\[&#39;</span>,<span style="color:#e6db74">&#39;\]&#39;</span>]],
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">processEscapes</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">processEnvironments</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">skipTags</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;script&#39;</span>, <span style="color:#e6db74">&#39;noscript&#39;</span>, <span style="color:#e6db74">&#39;style&#39;</span>, <span style="color:#e6db74">&#39;textarea&#39;</span>, <span style="color:#e6db74">&#39;pre&#39;</span>, <span style="color:#e6db74">&#39;code&#39;</span>,
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TeX</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">equationNumbers</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">autoNumber</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;AMS&#34;</span> },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">extensions</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;AMSmath.js&#34;</span>, <span style="color:#e6db74">&#34;AMSsymbols.js&#34;</span>]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  });
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span></code></pre></div><p>Then, you should be able to render in-line and display mathematics using $\LaTeX$ syntax respectively between single or double dollar signs after setting <code>mathjax: true</code> in the frontmatter of your post. Here&rsquo;s an example:
-$$
+</span></span></code></pre></div><p>Then, you should be able to render in-line and display mathematics using
+$\LaTeX$ syntax respectively between single or double dollar signs after
+setting <code>mathjax: true</code> in the frontmatter of your post. Here&rsquo;s an example:</p>
+<p>$$
 G_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa T_{\mu\nu}
 $$</p>
-<p>MathJax will only be loaded in posts that sets the <code>mathjax</code> field to <code>true</code>. It will not be loaded in any other case, including on non-post pages.</p>
+<p>MathJax will only be loaded in posts that sets the <code>mathjax</code> field to <code>true</code>.
+It will not be loaded in any other case, including on non-post pages.</p>
 <h2 id="eliminating-javascript">Eliminating JavaScript</h2>
-<p><code>hello-friend-ng</code> uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> for two purposes: to utilise <a href="https://prismjs.com/">PrismJS</a> and to allow toggling between themes.</p>
-<p>If you would like to eliminate the above-mentioned unnecessary usages of JavaScript from your website, which I highly recommend you do, follow these steps:</p>
+<p><code>hello-friend-ng</code> uses
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> for two
+purposes: to utilise <a href="https://prismjs.com/">PrismJS</a> and to allow toggling
+between themes.</p>
+<p>If you would like to eliminate the above-mentioned unnecessary usages of
+JavaScript from your website, which I highly recommend you do, follow these
+steps:</p>
 <ul>
 <li>Navigate to <code>themes/hello-friend-ng</code>.</li>
 <li>Execute <code>rm -rf assets/js layouts/partials/javascript.html</code>.</li>
-<li>Open <code>layouts/_default/baseof.html</code> in a text editor and remove the line that reads <code>{{ partial &quot;javascript.html&quot; . }}</code>.</li>
+<li>Open <code>layouts/_default/baseof.html</code> in a text editor and remove the line that
+reads <code>{{ partial &quot;javascript.html&quot; . }}</code>.</li>
 </ul>
-<p>Now, your website should be free of JavaScript. If you have set up MathJax, it will still behave as expected.</p>
-<p>You can also add <code>enableThemeToggle = false</code> under the <code>[params]</code> section in your configuration to get rid of the now dysfunctional toggle.</p>
+<p>Now, your website should be free of JavaScript. If you have set up MathJax, it
+will still behave as expected.</p>
+<p>You can also add <code>enableThemeToggle = false</code> under the <code>[params]</code> section in
+your configuration to get rid of the now dysfunctional toggle.</p>
 <h2 id="deployment">Deployment</h2>
-<p>After building, Hugo will create a directory named (by default) <code>public</code>. Navigate into this directory and execute the following commands to initialise a Git repository, add all files to the Git index and commit them.</p>
+<p>After building, Hugo will create a directory named (by default) <code>public</code>.
+Navigate into this directory and execute the following commands to initialise a
+Git repository, add all files to the Git index and commit them.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git init
 </span></span><span style="display:flex;"><span>git add -A
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
 </span></span></code></pre></div><p>This will be the repository you deploy.</p>
-<p>Now, you need to create a repository on GitHub that would be acknowledged by the GitHub Pages application. Go onto <a href="https://github.com/new">GitHub</a> and create an empty repository named <code>USERNAME.github.io</code> where <code>USERNAME</code> is your username. Then, switch back to the terminal from before and execute the following.</p>
+<p>Now, you need to create a repository on GitHub that would be acknowledged by
+the GitHub Pages application. Go onto <a href="https://github.com/new">GitHub</a> and
+create an empty repository named <code>USERNAME.github.io</code> where <code>USERNAME</code> is your
+username. Then, switch back to the terminal from before and execute the
+following.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git remote add origin <span style="color:#e6db74">&#34;git@github.com:USERNAME/USERNAME.github.io.git&#34;</span>
 </span></span><span style="display:flex;"><span>git push --set-upstream origin master
-</span></span></code></pre></div><p>After a few seconds to a few minutes, GitHub Pages will automatically deploy your website on <code>https://USERNAME.github.io</code>.</p>
+</span></span></code></pre></div><p>After a few seconds to a few minutes, GitHub Pages will automatically deploy
+your website on <code>https://USERNAME.github.io</code>.</p>
 <h3 id="alternate-methods">Alternate Methods</h3>
-<p>If you would not like to host your website on GitHub Pages, there are many other similar hosting services such as <a href="https://render.com/docs/static-sites">Render</a>. You may use one of those, or even better, host on your own server using your own domain name.</p>
-<p>If the exchange rate between your native currency and USD is sufficiently small, hosting should be quite cheap; and, you can get a domain name for free thanks to <a href="https://nic.eu.org/">EU.org</a>.</p>
-<p>To learn more about how to host on your own server and set up your own domain name, see the basic courses on <a href="https://landchad.net/">LandChad.net</a>.</p>
+<p>If you would not like to host your website on GitHub Pages, there are many
+other similar hosting services such as
+<a href="https://render.com/docs/static-sites">Render</a>. You may use one of those, or
+even better, host on your own server using your own domain name.</p>
+<p>If the exchange rate between your native currency and USD is sufficiently
+small, hosting should be quite cheap; and, you can get a domain name for free
+thanks to <a href="https://nic.eu.org/">EU.org</a>.</p>
+<p>To learn more about how to host on your own server and set up your own domain
+name, see the basic courses on <a href="https://landchad.net/">LandChad.net</a>.</p>
 <h1 id="automation">Automation</h1>
 <h2 id="building">Building</h2>
-<p>To automatically build the website (without drafts) and push it live, paste the following script into <code>.git/hooks/pre-push</code>.</p>
+<p>To automatically build the website (without drafts) and push it live, paste the
+following script into <code>.git/hooks/pre-push</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env sh
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span>set -e
@@ -336,10 +388,15 @@ $$</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --author<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hook &lt;&gt;&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -m <span style="color:#e6db74">&#34;#</span><span style="color:#66d9ef">$(($(</span>git rev-list --all --count<span style="color:#66d9ef">)</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">: Automatic build&#34;</span>
 </span></span><span style="display:flex;"><span>git push
-</span></span></code></pre></div><p>If you want the commit to be under your name and be signed normally, replace the commit line with <code>git commit -m &quot;#$(($(git rev-list --all --count) + 1)): Automatic build&quot;</code>.</p>
+</span></span></code></pre></div><p>If you want the commit to be under your name and be signed normally, replace
+the commit line with <code>git commit -m &quot;#$(($(git rev-list --all --count) + 1)): Automatic build&quot;</code>.</p>
 <h2 id="updating-the-last-modification-time">Updating the Last Modification Time</h2>
-<p>Hugo allows you to set the field <code>lastmod</code> in the frontmatter of your posts. If this field has a value later than the field <code>date</code>, the value is passed onto themes to be displayed somewhere in the post. This value might not be displayed depending on the theme you use.</p>
-<p>It is quite cumbersome to update this field manually, so, if you would like to automate it, paste the following script into <code>.git/hooks/pre-commit</code>.</p>
+<p>Hugo allows you to set the field <code>lastmod</code> in the frontmatter of your posts. If
+this field has a value later than the field <code>date</code>, the value is passed onto
+themes to be displayed somewhere in the post. This value might not be displayed
+depending on the theme you use.</p>
+<p>It is quite cumbersome to update this field manually, so, if you would like to
+automate it, paste the following script into <code>.git/hooks/pre-commit</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env sh
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span>time<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date --iso-8601<span style="color:#f92672">=</span>seconds<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
