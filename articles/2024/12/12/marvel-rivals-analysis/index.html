@@ -46,8 +46,8 @@
   <meta itemprop="name" content="A Statistical Analysis of Top Marvel Rivals Players">
   <meta itemprop="description" content="An aggregate analysis of the top 100 Marvel Rivals players.">
   <meta itemprop="datePublished" content="2024-12-12T13:17:00+03:00">
-  <meta itemprop="dateModified" content="2024-12-13T13:58:41+03:00">
-  <meta itemprop="wordCount" content="75">
+  <meta itemprop="dateModified" content="2025-03-26T22:50:50+03:00">
+  <meta itemprop="wordCount" content="789">
   <meta itemprop="image" content="https://xphyro.github.io/">
   <meta itemprop="keywords" content="marvel,rivals,plot,graph,analysis">
 
@@ -66,7 +66,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="articles">
     <meta property="article:published_time" content="2024-12-12T13:17:00+03:00">
-    <meta property="article:modified_time" content="2024-12-13T13:58:41+03:00">
+    <meta property="article:modified_time" content="2025-03-26T22:50:50+03:00">
     <meta property="article:tag" content="Marvel-Rivals">
     <meta property="article:tag" content="Analysis">
     <meta property="og:image" content="https://xphyro.github.io/">
@@ -145,34 +145,316 @@
             
             
             
+                <hr />
+                <aside id="toc">
+                <div class="toc-title">Table of Contents</div>
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#plots">Plots</a></li>
+    <li><a href="#code">Code</a>
+      <ul>
+        <li><a href="#ocrpy">ocr.py</a></li>
+        <li><a href="#plotpy">plot.py</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </aside>
+                <hr />
+            
 
             <div class="post-content">
-                <p>Alwaid and I went through the current (2024-12-12) top 100 players in Marvel
+                <h1 id="introduction">Introduction</h1>
+<p>Alwaid and I went through the current (2024-12-12) top 100 players in Marvel
 Rivals whose profiles were public, so 130 in total including the non-public
 ones, and analysed the statistics for their top 3 heroes by play time. Below are
 the results.</p>
 <p>Be aware that there are some extreme outliers that are caused by OCR (optical
 character recognition) mistakes. We didn&rsquo;t make an effort to thoroughly clean
 the data up as these should be relatively-obvious.</p>
-<p><img alt="Top Heroes" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/1-top-heroes.png"></p>
-<p><img alt="Time Played" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/2-time-played.png"></p>
-<p><img alt="Matches Played" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/3-matches-played.png"></p>
-<p><img alt="Wins" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/4-wins.png"></p>
-<p><img alt="KOs" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/5-kos.png"></p>
-<p><img alt="Assists" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/6-assists.png"></p>
-<p><img alt="Best KO Streak" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/7-best-ko-streak.png"></p>
-<p><img alt="Total Damage" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/8-total-damage.png"></p>
-<p><img alt="Best Damage" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/9-best-damage.png"></p>
-<p><img alt="Damage Avg per 10 Mins" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/10-damage-avg-per-10-mins.png"></p>
-<p><img alt="Total Healing" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/11-total-healing.png"></p>
-<p><img alt="Best Healing" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/12-best-healing.png"></p>
-<p><img alt="Healing Avg per 10 Mins" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/13-healing-avg-per-10-mins.png"></p>
-<p><img alt="Total Damage Blocked" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/14-total-damage-blocked.png"></p>
-<p><img alt="Best Damage Blocked" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/15-best-damage-blocked.png"></p>
-<p><img alt="Damage Blocked Avg per 10 Mins" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/16-damage-blocked-avg-per-10-mins.png"></p>
-<p><img alt="Total Accuracy" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/17-total-accuracy.png"></p>
-<p><img alt="Best Accuracy" src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/18-best-accuracy.png"></p>
-
+<h1 id="plots">Plots</h1>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/1-top-heroes.png" alt="Top Heroes"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/2-time-played.png" alt="Time Played"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/3-matches-played.png" alt="Matches Played"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/4-wins.png" alt="Wins"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/5-kos.png" alt="KOs"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/6-assists.png" alt="Assists"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/7-best-ko-streak.png" alt="Best KO Streak"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/8-total-damage.png" alt="Total Damage"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/9-best-damage.png" alt="Best Damage"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/10-damage-avg-per-10-mins.png" alt="Damage Avg per 10 Mins"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/11-total-healing.png" alt="Total Healing"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/12-best-healing.png" alt="Best Healing"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/13-healing-avg-per-10-mins.png" alt="Healing Avg per 10 Mins"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/14-total-damage-blocked.png" alt="Total Damage Blocked"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/15-best-damage-blocked.png" alt="Best Damage Blocked"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/16-damage-blocked-avg-per-10-mins.png" alt="Damage Blocked Avg per 10 Mins"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/17-total-accuracy.png" alt="Total Accuracy"></p>
+<p><img src="https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/plots/18-best-accuracy.png" alt="Best Accuracy"></p>
+<h1 id="code">Code</h1>
+<p>Here are the <em>terrible</em> Python scripts used for the analysis. Please don&rsquo;t use
+them in production.</p>
+<h2 id="ocrpy">ocr.py</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> PIL <span style="color:#f92672">import</span> Image
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pytesseract
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RectOCR</span>:
+</span></span><span style="display:flex;"><span>    H_X1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">996</span> <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    H_Y0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">844</span> <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    H_DX <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1238</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">996</span>) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    H_DY <span style="color:#f92672">=</span> (<span style="color:#ae81ff">932</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">844</span>) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    H_TIME_RECT <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>        H_X1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> H_DX,
+</span></span><span style="display:flex;"><span>        H_Y0,
+</span></span><span style="display:flex;"><span>        H_X1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> H_DX <span style="color:#f92672">+</span> H_DX <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        H_Y0 <span style="color:#f92672">+</span> H_DY,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    H_TIME_UNIT_RECT <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>        H_X1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> H_DX <span style="color:#f92672">+</span> H_DX <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        H_Y0,
+</span></span><span style="display:flex;"><span>        H_X1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> H_DX <span style="color:#f92672">+</span> H_DX,
+</span></span><span style="display:flex;"><span>        H_Y0 <span style="color:#f92672">+</span> H_DY,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    H_MATCHES <span style="color:#f92672">=</span> H_X1
+</span></span><span style="display:flex;"><span>    H_WINS <span style="color:#f92672">=</span> H_X1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> H_DX
+</span></span><span style="display:flex;"><span>    H_KO <span style="color:#f92672">=</span> H_X1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> H_DX
+</span></span><span style="display:flex;"><span>    H_ASS <span style="color:#f92672">=</span> H_X1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> H_DX
+</span></span><span style="display:flex;"><span>    H_STREAK <span style="color:#f92672">=</span> H_X1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> H_DX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    S_X0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1192</span> <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    S_Y0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1500</span> <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    S_DX <span style="color:#f92672">=</span> <span style="color:#ae81ff">333</span> <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    S_DY <span style="color:#f92672">=</span> <span style="color:#ae81ff">84</span> <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    S_DAMAGE <span style="color:#f92672">=</span> (S_X0, S_Y0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">*</span> S_DY)
+</span></span><span style="display:flex;"><span>    S_HEAL <span style="color:#f92672">=</span> (S_X0, S_Y0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> S_DY)
+</span></span><span style="display:flex;"><span>    S_BLOCK <span style="color:#f92672">=</span> (S_X0, S_Y0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> S_DY)
+</span></span><span style="display:flex;"><span>    S_ACC <span style="color:#f92672">=</span> (S_X0, S_Y0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> S_DY)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    time <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    matches <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    wins <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    ko <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    ass <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    streak <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    damage_total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    heal_total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    block_total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    acc_total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    damage_best <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    heal_best <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    block_best <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    acc_best <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    damage_avg_10 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    heal_avg_10 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    block_avg_10 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    acc_avg_10 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_h_rect</span>(self, x):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (x, self<span style="color:#f92672">.</span>H_Y0, x <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>H_DX, self<span style="color:#f92672">.</span>H_Y0 <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>H_DY)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_s_rects</span>(self, top_left):
+</span></span><span style="display:flex;"><span>        x0 <span style="color:#f92672">=</span> top_left[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        y0 <span style="color:#f92672">=</span> top_left[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> [
+</span></span><span style="display:flex;"><span>            (x0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>S_DX, y0, x0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>S_DX, y0 <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>S_DY),
+</span></span><span style="display:flex;"><span>            (x0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>S_DX, y0, x0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>S_DX, y0 <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>S_DY),
+</span></span><span style="display:flex;"><span>            (x0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>S_DX, y0, x0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>S_DX, y0 <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>S_DY),
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __str__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">.</span>join(
+</span></span><span style="display:flex;"><span>            str(i)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> [
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>time,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>matches,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>wins,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>ko,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>ass,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>streak,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>damage_total,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>damage_best,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>damage_avg_10,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>heal_total,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>heal_best,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>heal_avg_10,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>block_total,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>block_best,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>block_avg_10,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>acc_total,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>acc_best,
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>acc_avg_10,
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_float</span>(img):
+</span></span><span style="display:flex;"><span>    text <span style="color:#f92672">=</span> pytesseract<span style="color:#f92672">.</span>image_to_string(img)
+</span></span><span style="display:flex;"><span>    clean_text <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;[^0-9\.]&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, text)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(clean_text) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> float(clean_text)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_ocrs</span>(image_path):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">with</span> Image<span style="color:#f92672">.</span>open(image_path) <span style="color:#66d9ef">as</span> img:
+</span></span><span style="display:flex;"><span>            rects <span style="color:#f92672">=</span> RectOCR()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>time <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(rects<span style="color:#f92672">.</span>H_TIME_RECT))
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> rects<span style="color:#f92672">.</span>time <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">and</span> <span style="color:#e6db74">&#34;HRS&#34;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> pytesseract<span style="color:#f92672">.</span>image_to_string(
+</span></span><span style="display:flex;"><span>                img<span style="color:#f92672">.</span>crop(rects<span style="color:#f92672">.</span>H_TIME_UNIT_RECT)
+</span></span><span style="display:flex;"><span>            ):
+</span></span><span style="display:flex;"><span>                rects<span style="color:#f92672">.</span>time <span style="color:#f92672">/=</span> <span style="color:#ae81ff">60.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>matches <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(rects<span style="color:#f92672">.</span>get_h_rect(rects<span style="color:#f92672">.</span>H_MATCHES)))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>wins <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(rects<span style="color:#f92672">.</span>get_h_rect(rects<span style="color:#f92672">.</span>H_WINS)))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>ko <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(rects<span style="color:#f92672">.</span>get_h_rect(rects<span style="color:#f92672">.</span>H_KO)))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>ass <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(rects<span style="color:#f92672">.</span>get_h_rect(rects<span style="color:#f92672">.</span>H_ASS)))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>streak <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(rects<span style="color:#f92672">.</span>get_h_rect(rects<span style="color:#f92672">.</span>H_STREAK)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            damage_rects <span style="color:#f92672">=</span> rects<span style="color:#f92672">.</span>get_s_rects(rects<span style="color:#f92672">.</span>S_DAMAGE)
+</span></span><span style="display:flex;"><span>            heal_rects <span style="color:#f92672">=</span> rects<span style="color:#f92672">.</span>get_s_rects(rects<span style="color:#f92672">.</span>S_HEAL)
+</span></span><span style="display:flex;"><span>            block_rects <span style="color:#f92672">=</span> rects<span style="color:#f92672">.</span>get_s_rects(rects<span style="color:#f92672">.</span>S_BLOCK)
+</span></span><span style="display:flex;"><span>            acc_rects <span style="color:#f92672">=</span> rects<span style="color:#f92672">.</span>get_s_rects(rects<span style="color:#f92672">.</span>S_ACC)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>damage_total <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(damage_rects[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>damage_best <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(damage_rects[<span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>damage_avg_10 <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(damage_rects[<span style="color:#ae81ff">2</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>heal_total <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(heal_rects[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>heal_best <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(heal_rects[<span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>heal_avg_10 <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(heal_rects[<span style="color:#ae81ff">2</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>block_total <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(block_rects[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>block_best <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(block_rects[<span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>block_avg_10 <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(block_rects[<span style="color:#ae81ff">2</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>acc_total <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(acc_rects[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>acc_best <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(acc_rects[<span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>            rects<span style="color:#f92672">.</span>acc_avg_10 <span style="color:#f92672">=</span> get_float(img<span style="color:#f92672">.</span>crop(acc_rects[<span style="color:#ae81ff">2</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> rects
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Error reading the rectangle on the image: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> path <span style="color:#f92672">in</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>:]:
+</span></span><span style="display:flex;"><span>        text_content <span style="color:#f92672">=</span> get_ocrs(path)
+</span></span><span style="display:flex;"><span>        print(
+</span></span><span style="display:flex;"><span>            re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;.*/([0-9]+)\s+.*&#34;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;\g&lt;1&gt;&#34;</span>, path)<span style="color:#f92672">.</span>strip(),
+</span></span><span style="display:flex;"><span>            re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;.*/[0-9]+\s+(.*)\s*\.[a-z]+&#34;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;\g&lt;1&gt;&#34;</span>, path)<span style="color:#f92672">.</span>strip(),
+</span></span><span style="display:flex;"><span>            text_content,
+</span></span><span style="display:flex;"><span>            sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;,&#34;</span>,
+</span></span><span style="display:flex;"><span>        )
+</span></span></code></pre></div><h2 id="plotpy">plot.py</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>csv <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>output_directory <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(csv)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hero_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>hero_column <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Top Heroes&#34;</span>
+</span></span><span style="display:flex;"><span>columns <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;File Name&#34;</span>),
+</span></span><span style="display:flex;"><span>    (hero_index, hero_column),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;Time Played&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;Matches Played&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#34;Wins&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#34;KOs&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#34;Assists&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#34;Best KO Streak&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#34;Total Damage&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">9</span>, <span style="color:#e6db74">&#34;Best Damage&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">10</span>, <span style="color:#e6db74">&#34;Damage Avg per 10 Mins&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">11</span>, <span style="color:#e6db74">&#34;Total Healing&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">12</span>, <span style="color:#e6db74">&#34;Best Healing&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">13</span>, <span style="color:#e6db74">&#34;Healing Avg per 10 Mins&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">14</span>, <span style="color:#e6db74">&#34;Total Damage Blocked&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">15</span>, <span style="color:#e6db74">&#34;Best Damage Blocked&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">16</span>, <span style="color:#e6db74">&#34;Damage Blocked Avg per 10 Mins&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">17</span>, <span style="color:#e6db74">&#34;Total Accuracy&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">18</span>, <span style="color:#e6db74">&#34;Best Accuracy&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">19</span>, <span style="color:#e6db74">&#34;Accuracy Avg per 10 Mins&#34;</span>),
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [column <span style="color:#66d9ef">for</span> _, column <span style="color:#f92672">in</span> columns]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>set_theme(style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;whitegrid&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hero_counts <span style="color:#f92672">=</span> data[hero_column]<span style="color:#f92672">.</span>value_counts()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>hero_counts<span style="color:#f92672">.</span>sort_values(ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>plot(
+</span></span><span style="display:flex;"><span>    kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;barh&#34;</span>, color<span style="color:#f92672">=</span>sns<span style="color:#f92672">.</span>color_palette(<span style="color:#e6db74">&#34;pastel&#34;</span>), edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;black&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>hero_index<span style="color:#e6db74">}</span><span style="color:#e6db74">. Histogram of </span><span style="color:#e6db74">{</span>hero_column<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>, fontweight<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bold&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Count&#34;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Hero&#34;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid(axis<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;x&#34;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.7</span>)
+</span></span><span style="display:flex;"><span>hero_histogram_path <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>output_directory<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>hero_index<span style="color:#e6db74">}</span><span style="color:#e6db74">. </span><span style="color:#e6db74">{</span>hero_column<span style="color:#e6db74">}</span><span style="color:#e6db74">.png&#34;</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(hero_histogram_path, bbox_inches<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tight&#34;</span>, dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Saved plot to </span><span style="color:#e6db74">{</span>hero_histogram_path<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i, column <span style="color:#f92672">in</span> columns[<span style="color:#ae81ff">2</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]:
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>    data_filtered <span style="color:#f92672">=</span> data[data[column] <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][column]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>    sns<span style="color:#f92672">.</span>histplot(
+</span></span><span style="display:flex;"><span>        data_filtered, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">32</span>, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dodgerblue&#34;</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;black&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">. Histogram of </span><span style="color:#e6db74">{</span>column<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>, fontweight<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bold&#34;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>xlabel(column, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Count&#34;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>grid(axis<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;y&#34;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.7</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    total_sum <span style="color:#f92672">=</span> data_filtered<span style="color:#f92672">.</span>sum()
+</span></span><span style="display:flex;"><span>    mean <span style="color:#f92672">=</span> data_filtered<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    median <span style="color:#f92672">=</span> data_filtered<span style="color:#f92672">.</span>median()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    stats_text <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Sum: </span><span style="color:#e6db74">{</span>total_sum<span style="color:#e6db74">:</span><span style="color:#e6db74">.0f</span><span style="color:#e6db74">}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Mean: </span><span style="color:#e6db74">{</span>mean<span style="color:#e6db74">:</span><span style="color:#e6db74">.2f</span><span style="color:#e6db74">}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Median: </span><span style="color:#e6db74">{</span>median<span style="color:#e6db74">:</span><span style="color:#e6db74">.2f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>gcf()<span style="color:#f92672">.</span>text(
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.75</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.85</span>,
+</span></span><span style="display:flex;"><span>        stats_text,
+</span></span><span style="display:flex;"><span>        fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>        bbox<span style="color:#f92672">=</span>dict(facecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;white&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;black&#34;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>        ha<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>,
+</span></span><span style="display:flex;"><span>        va<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top&#34;</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    output_path <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>output_directory<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">. </span><span style="color:#e6db74">{</span>column<span style="color:#e6db74">}</span><span style="color:#e6db74">.png&#34;</span>
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>savefig(output_path, bbox_inches<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tight&#34;</span>, dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Saved plot to </span><span style="color:#e6db74">{</span>output_path<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div>
             </div>
         </article>
 
@@ -206,9 +488,9 @@ the data up as these should be relatively-obvious.</p>
     
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2024</span>
-            <span><a href="https://xphyro.github.io/"></a></span>
-            <span>This work is licensed under CC BY-NC-SA 4.0.</span>
+            <span>&copy; 2025</span>
+            
+            <span>CC BY-NC-SA 4.0 / MIT</span>
             <span><a href="https://xphyro.github.io/articles/index.xml" target="_blank" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
             
         </div>
