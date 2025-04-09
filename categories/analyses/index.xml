@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Analysis on XPhyro&#39;s Blog</title>
-    <link>https://xphyro.github.io/categories/analysis/</link>
-    <description>Recent content in Analysis on XPhyro&#39;s Blog</description>
+    <title>Analyses on XPhyro&#39;s Blog</title>
+    <link>https://xphyro.github.io/categories/analyses/</link>
+    <description>Recent content in Analyses on XPhyro&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>CC BY-NC-SA 4.0 / MIT</copyright>
-    <lastBuildDate>Wed, 26 Mar 2025 22:50:50 +0300</lastBuildDate>
-    <atom:link href="https://xphyro.github.io/categories/analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Apr 2025 19:21:59 +0300</lastBuildDate>
+    <atom:link href="https://xphyro.github.io/categories/analyses/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Statistical Analysis of Top Marvel Rivals Players</title>
       <link>https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/</link>
