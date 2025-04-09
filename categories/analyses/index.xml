@@ -7,14 +7,14 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>CC BY-NC-SA 4.0 / MIT</copyright>
-    <lastBuildDate>Wed, 09 Apr 2025 19:21:59 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 09 Apr 2025 19:30:15 +0300</lastBuildDate>
     <atom:link href="https://xphyro.github.io/categories/analyses/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Statistical Analysis of Top Marvel Rivals Players</title>
       <link>https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/</link>
       <pubDate>Thu, 12 Dec 2024 13:17:00 +0300</pubDate>
       <guid>https://xphyro.github.io/articles/2024/12/12/marvel-rivals-analysis/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;Alwaid and I went through the current (2024-12-12) top 100 players in Marvel&#xA;Rivals whose profiles were public, so 130 in total including the non-public&#xA;ones, and analysed the statistics for their top 3 heroes by play time. Below are&#xA;the results.&lt;/p&gt;&#xA;&lt;p&gt;Be aware that there are some extreme outliers that are caused by OCR (optical&#xA;character recognition) mistakes. We didn&amp;rsquo;t make an effort to thoroughly clean&#xA;the data up as these should be relatively-obvious.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;Alwaid and I went through the current (2024-12-12) top 100 players in Marvel&#xA;Rivals whose profiles were public—so 130 in total including the non-public&#xA;ones—and analysed the statistics for their top 3 heroes by play time. Below are&#xA;the results.&lt;/p&gt;&#xA;&lt;p&gt;Be aware, though, that there are some extreme outliers that are caused by OCR&#xA;(optical character recognition) mistakes. We didn&amp;rsquo;t make an effort to&#xA;thoroughly clean the data up as these should be relatively obvious.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
